@@ -20,7 +20,6 @@ class Solution:
                 if intervals[l][1] > newInterval[1]:
                     newInterval[1] = intervals[l][1]
 
-
             l += 1
 
         result.append(newInterval)
