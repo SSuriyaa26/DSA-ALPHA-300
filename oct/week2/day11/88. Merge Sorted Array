@@ -1,0 +1,19 @@
+#leetcode Q88
+class Solution:
+    def merge(self, nums1: list[int], m: int, nums2: list[int], n: int) -> None:
+        """
+        Do not return anything, modify nums1 in-place instead.
+        """
+        l = m - 1 #pointers from the back as suggested in the document
+        r = n - 1
+        idx = m + n - 1#indexing for current position
+        while r >= 0:
+            if l >= 0 and nums1[l] > nums2[r]:#2 pointer logic to place values
+                nums1[idx] = nums1[l]
+                l -= 1
+            else:
+                nums1[idx] = nums2[r]
+                r -= 1
+
+            idx -= 1
+
