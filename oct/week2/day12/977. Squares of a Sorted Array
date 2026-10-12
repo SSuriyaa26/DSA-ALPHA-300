@@ -1,0 +1,19 @@
+#leetcode Q977
+class Solution:
+    def sortedSquares(self, nums: List[int]) -> List[int]:
+        result = [0] * len(nums) #init a list with 0 and plaxing values inside it
+        l=0
+        r =len(nums)- 1
+        idx = len(nums)- 1
+
+        while l <= r:
+            if nums[l] ** 2 > nums[r] ** 2: #comparing squares , can also use abs()
+                result[idx] = nums[l] ** 2
+                l += 1
+            else:
+                result[idx] = nums[r] ** 2
+                r -= 1
+
+            idx -= 1
+
+        return result
