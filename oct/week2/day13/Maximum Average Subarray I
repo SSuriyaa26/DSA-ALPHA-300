@@ -1,0 +1,20 @@
+#leetcode Q 643
+class Solution:
+    def findMaxAverage(self, nums: list[int], k: int) -> float:
+        l = 0
+        r = k - 1
+        current = 0
+        for i in range(k):
+            current += nums[i]
+
+        max1 = current
+        while r < len(nums) - 1:
+            current -= nums[l]
+            l += 1
+            r += 1
+            current += nums[r]
+
+            if current > max1:
+                max1 = current
+
+        return float(max1 / k)
