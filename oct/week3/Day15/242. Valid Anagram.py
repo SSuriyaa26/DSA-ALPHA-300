@@ -2,7 +2,6 @@
 class Solution:
     def groupAnagrams(self, strs: list[str]) -> list[list[str]]:
         words = {}
-
         for s in strs:
             chars = [0] * 26
 
