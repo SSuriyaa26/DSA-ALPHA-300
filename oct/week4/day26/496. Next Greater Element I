@@ -1,0 +1,21 @@
+#leetcode Q 496
+class Solution:
+    def nextGreaterElement(self, nums1: list[int], nums2: list[int]) -> list[int]:
+        stack = []
+        dic = {}
+
+        for i in range(len(nums2)):
+            while stack and stack[-1] < nums2[i]:
+                dic[stack.pop()] = nums2[i]
+
+            stack.append(nums2[i])
+
+        result = []
+
+        for i in range(len(nums1)):
+            if nums1[i] in dic:
+                result.append(dic[nums1[i]])
+            else:
+                result.append(-1)
+
+        return result
